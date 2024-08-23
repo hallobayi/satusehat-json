@@ -1,0 +1,1148 @@
+{
+	"info": {
+		"_postman_id": "69c3f0a6-a402-46fb-aaaa-01623d56401e",
+		"name": "Master Data - Kewilayahan [APIGEE-DEV]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23783072"
+	},
+	"item": [
+		{
+			"name": "O-Auth2",
+			"item": [
+				{
+					"name": "Generate Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();",
+									"pm.collectionVariables.set(\"token\", data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url_prod}}/accesstoken?grant_type=client_credentials",
+							"host": [
+								"{{auth_url_prod}}"
+							],
+							"path": [
+								"accesstoken"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "V1",
+			"item": [
+				{
+					"name": "Get Province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url_prod}}/v1/provinces?codes=11, 12",
+							"host": [
+								"{{base_url_prod}}"
+							],
+							"path": [
+								"v1",
+								"provinces"
+							],
+							"query": [
+								{
+									"key": "codes",
+									"value": "11, 12"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{dev-sarana-wilayah}}/v1/provinces",
+									"host": [
+										"{{dev-sarana-wilayah}}"
+									],
+									"path": [
+										"v1",
+										"provinces"
+									],
+									"query": [
+										{
+											"key": "codes",
+											"value": "11, 12",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "date",
+									"value": "Wed, 08 Nov 2023 03:32:35 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"11\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"11\",\n            \"name\": \"Aceh\"\n        },\n        {\n            \"code\": \"12\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"12\",\n            \"name\": \"Sumatera Utara\"\n        },\n        {\n            \"code\": \"13\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"13\",\n            \"name\": \"Sumatera Barat\"\n        },\n        {\n            \"code\": \"14\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"14\",\n            \"name\": \"Riau\"\n        },\n        {\n            \"code\": \"15\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"15\",\n            \"name\": \"Jambi\"\n        },\n        {\n            \"code\": \"16\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"16\",\n            \"name\": \"Sumatera Selatan\"\n        },\n        {\n            \"code\": \"17\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"17\",\n            \"name\": \"Bengkulu\"\n        },\n        {\n            \"code\": \"18\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"18\",\n            \"name\": \"Lampung\"\n        },\n        {\n            \"code\": \"19\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"19\",\n            \"name\": \"Kepulauan Bangka Belitung\"\n        },\n        {\n            \"code\": \"21\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"21\",\n            \"name\": \"Kepulauan Riau\"\n        },\n        {\n            \"code\": \"31\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"31\",\n            \"name\": \"DKI Jakarta\"\n        },\n        {\n            \"code\": \"32\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"32\",\n            \"name\": \"Jawa Barat\"\n        },\n        {\n            \"code\": \"33\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"33\",\n            \"name\": \"Jawa Tengah\"\n        },\n        {\n            \"code\": \"34\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"34\",\n            \"name\": \"Yogyakarta\"\n        },\n        {\n            \"code\": \"35\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"35\",\n            \"name\": \"Jawa Timur\"\n        },\n        {\n            \"code\": \"36\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"36\",\n            \"name\": \"Banten\"\n        },\n        {\n            \"code\": \"51\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"51\",\n            \"name\": \"Bali\"\n        },\n        {\n            \"code\": \"52\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"52\",\n            \"name\": \"Nusa Tenggara Barat\"\n        },\n        {\n            \"code\": \"53\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"53\",\n            \"name\": \"Nusa Tenggara Timur\"\n        },\n        {\n            \"code\": \"61\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"61\",\n            \"name\": \"Kalimantan Barat\"\n        },\n        {\n            \"code\": \"62\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"62\",\n            \"name\": \"Kalimantan Tengah\"\n        },\n        {\n            \"code\": \"63\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"63\",\n            \"name\": \"Kalimantan Selatan\"\n        },\n        {\n            \"code\": \"64\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"64\",\n            \"name\": \"Kalimantan Timur\"\n        },\n        {\n            \"code\": \"65\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"65\",\n            \"name\": \"Kalimantan Utara\"\n        },\n        {\n            \"code\": \"71\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"71\",\n            \"name\": \"Sulawesi Utara\"\n        },\n        {\n            \"code\": \"72\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"72\",\n            \"name\": \"Sulawesi Tengah\"\n        },\n        {\n            \"code\": \"73\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"73\",\n            \"name\": \"Sulawesi Selatan\"\n        },\n        {\n            \"code\": \"74\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"74\",\n            \"name\": \"Sulawesi Tenggara\"\n        },\n        {\n            \"code\": \"75\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"75\",\n            \"name\": \"Gorontalo\"\n        },\n        {\n            \"code\": \"76\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"76\",\n            \"name\": \"Sulawesi Barat\"\n        },\n        {\n            \"code\": \"81\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"81\",\n            \"name\": \"Maluku\"\n        },\n        {\n            \"code\": \"82\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"82\",\n            \"name\": \"Maluku Utara\"\n        },\n        {\n            \"code\": \"91\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"94\",\n            \"name\": \"Papua\"\n        },\n        {\n            \"code\": \"92\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"91\",\n            \"name\": \"Papua Barat\"\n        },\n        {\n            \"code\": \"93\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"\",\n            \"name\": \"Papua Selatan\"\n        },\n        {\n            \"code\": \"94\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"\",\n            \"name\": \"Papua Tengah\"\n        },\n        {\n            \"code\": \"95\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"\",\n            \"name\": \"Papua Pegunungan\"\n        },\n        {\n            \"code\": \"96\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"\",\n            \"name\": \"Papua Barat Daya\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Cities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_prod}}/v1/cities?province_codes=11, 12",
+							"host": [
+								"{{base_url_prod}}"
+							],
+							"path": [
+								"v1",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "province_codes",
+									"value": "11, 12"
+								},
+								{
+									"key": "codes",
+									"value": "1103,1104, 1210",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{dev-sarana-wilayah}}/v1/cities?province_codes=11, 12&codes=1103,1104, 1210",
+									"host": [
+										"{{dev-sarana-wilayah}}"
+									],
+									"path": [
+										"v1",
+										"cities"
+									],
+									"query": [
+										{
+											"key": "province_codes",
+											"value": "11, 12"
+										},
+										{
+											"key": "codes",
+											"value": "1103,1104, 1210"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "09b84689ddda363af82e7ae00da589a4"
+								},
+								{
+									"key": "date",
+									"value": "Wed, 08 Nov 2023 03:33:43 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "content-length",
+									"value": "294"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"1103\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1105\",\n            \"name\": \"Kab. Aceh Timur\"\n        },\n        {\n            \"code\": \"1104\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1106\",\n            \"name\": \"Kab. Aceh Tengah\"\n        },\n        {\n            \"code\": \"1210\",\n            \"parent_code\": \"12\",\n            \"bps_code\": \"1207\",\n            \"name\": \"Kab. Labuhanbatu\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Districts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url_prod}}/v1/districts?city_codes=1103, 1104 ",
+							"host": [
+								"{{base_url_prod}}"
+							],
+							"path": [
+								"v1",
+								"districts"
+							],
+							"query": [
+								{
+									"key": "city_codes",
+									"value": "1103, 1104 "
+								},
+								{
+									"key": "codes",
+									"value": "110302, 110301",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{dev-sarana-wilayah}}/v1/districts?city_codes=1103, 1104 ",
+									"host": [
+										"{{dev-sarana-wilayah}}"
+									],
+									"path": [
+										"v1",
+										"districts"
+									],
+									"query": [
+										{
+											"key": "city_codes",
+											"value": "1103, 1104 "
+										},
+										{
+											"key": "codes",
+											"value": "110302, 110301",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "date",
+									"value": "Wed, 08 Nov 2023 03:36:21 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"110301\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105140\",\n            \"name\": \"Darul Aman\"\n        },\n        {\n            \"code\": \"110303\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105130\",\n            \"name\": \"Idi Rayeuk\"\n        },\n        {\n            \"code\": \"110302\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105160\",\n            \"name\": \"Julok\"\n        },\n        {\n            \"code\": \"110304\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105090\",\n            \"name\": \"Birem Bayeun\"\n        },\n        {\n            \"code\": \"110305\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105080\",\n            \"name\": \"Serbajadi\"\n        },\n        {\n            \"code\": \"110307\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105110\",\n            \"name\": \"Peureulak\"\n        },\n        {\n            \"code\": \"110309\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105180\",\n            \"name\": \"Simpang Ulim\"\n        },\n        {\n            \"code\": \"110313\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105161\",\n            \"name\": \"Indra Makmu\"\n        },\n        {\n            \"code\": \"110314\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105133\",\n            \"name\": \"Idi Tunong\"\n        },\n        {\n            \"code\": \"110316\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105131\",\n            \"name\": \"Peudawa\"\n        },\n        {\n            \"code\": \"110318\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105112\",\n            \"name\": \"Peureulak Barat\"\n        },\n        {\n            \"code\": \"110319\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105101\",\n            \"name\": \"Sungai Raya\"\n        },\n        {\n            \"code\": \"110320\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105081\",\n            \"name\": \"Simpang Jernih\"\n        },\n        {\n            \"code\": \"110322\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105151\",\n            \"name\": \"Darul Falah\"\n        },\n        {\n            \"code\": \"110323\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105135\",\n            \"name\": \"Idi Timur\"\n        },\n        {\n            \"code\": \"110306\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105150\",\n            \"name\": \"Nurussalam\"\n        },\n        {\n            \"code\": \"110308\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105100\",\n            \"name\": \"Rantau Selamat\"\n        },\n        {\n            \"code\": \"110310\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105120\",\n            \"name\": \"Rantau Peureulak\"\n        },\n        {\n            \"code\": \"110311\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105170\",\n            \"name\": \"Pante Bidari\"\n        },\n        {\n            \"code\": \"110312\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105181\",\n            \"name\": \"Madat\"\n        },\n        {\n            \"code\": \"110315\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105132\",\n            \"name\": \"Banda Alam\"\n        },\n        {\n            \"code\": \"110317\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105111\",\n            \"name\": \"Peureulak  Timur\"\n        },\n        {\n            \"code\": \"110321\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105134\",\n            \"name\": \"Darul Ihsan\"\n        },\n        {\n            \"code\": \"110324\",\n            \"parent_code\": \"1103\",\n            \"bps_code\": \"1105082\",\n            \"name\": \"Peunaron\"\n        },\n        {\n            \"code\": \"110403\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106050\",\n            \"name\": \"Bebesen\"\n        },\n        {\n            \"code\": \"110407\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106040\",\n            \"name\": \"Pegasing\"\n        },\n        {\n            \"code\": \"110417\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106031\",\n            \"name\": \"Laut Tawar\"\n        },\n        {\n            \"code\": \"110420\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106041\",\n            \"name\": \"Bies\"\n        },\n        {\n            \"code\": \"110401\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106010\",\n            \"name\": \"Linge\"\n        },\n        {\n            \"code\": \"110402\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106060\",\n            \"name\": \"Silih Nara\"\n        },\n        {\n            \"code\": \"110408\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106020\",\n            \"name\": \"Bintang\"\n        },\n        {\n            \"code\": \"110410\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106061\",\n            \"name\": \"Ketol\"\n        },\n        {\n            \"code\": \"110411\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106032\",\n            \"name\": \"Kebayakan\"\n        },\n        {\n            \"code\": \"110412\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106051\",\n            \"name\": \"Kute Panang\"\n        },\n        {\n            \"code\": \"110413\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106062\",\n            \"name\": \"Celala\"\n        },\n        {\n            \"code\": \"110418\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106011\",\n            \"name\": \"Atu Lintang\"\n        },\n        {\n            \"code\": \"110419\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106012\",\n            \"name\": \"Jagong Jeget\"\n        },\n        {\n            \"code\": \"110421\",\n            \"parent_code\": \"1104\",\n            \"bps_code\": \"1106063\",\n            \"name\": \"Rusip Antara\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Sub Districts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_prod}}/v1/sub-districts?district_codes=110301, 110302",
+							"host": [
+								"{{base_url_prod}}"
+							],
+							"path": [
+								"v1",
+								"sub-districts"
+							],
+							"query": [
+								{
+									"key": "district_codes",
+									"value": "110301, 110302"
+								},
+								{
+									"key": "codes",
+									"value": "1103012002, 1103012004 ,1103022004 ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{dev-sarana-wilayah}}/v1/sub-districts?district_codes=110301, 110302",
+									"host": [
+										"{{dev-sarana-wilayah}}"
+									],
+									"path": [
+										"v1",
+										"sub-districts"
+									],
+									"query": [
+										{
+											"key": "district_codes",
+											"value": "110301, 110302"
+										},
+										{
+											"key": "codes",
+											"value": "1103012002, 1103012004 ,1103022004 ",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "date",
+									"value": "Wed, 08 Nov 2023 03:37:24 GMT"
+								},
+								{
+									"key": "server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"1103012002\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140007\",\n            \"name\": \"Alue Luddin Dua\"\n        },\n        {\n            \"code\": \"1103012005\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140006\",\n            \"name\": \"Dama Pulo Dua\"\n        },\n        {\n            \"code\": \"1103012006\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140018\",\n            \"name\": \"Buket Kulam\"\n        },\n        {\n            \"code\": \"1103012009\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140001\",\n            \"name\": \"Seuneubok Simpang\"\n        },\n        {\n            \"code\": \"1103012011\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140026\",\n            \"name\": \"Lhok Geulumpang\"\n        },\n        {\n            \"code\": \"1103012012\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140027\",\n            \"name\": \"Blang Buket\"\n        },\n        {\n            \"code\": \"1103012013\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140004\",\n            \"name\": \"Meunasah Keutapang\"\n        },\n        {\n            \"code\": \"1103012014\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140009\",\n            \"name\": \"Buket Rumia\"\n        },\n        {\n            \"code\": \"1103012001\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140025\",\n            \"name\": \"Alue Luddin Sa\"\n        },\n        {\n            \"code\": \"1103012003\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140005\",\n            \"name\": \"Alue Dalam\"\n        },\n        {\n            \"code\": \"1103012004\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140020\",\n            \"name\": \"Dama Pulo Sa\"\n        },\n        {\n            \"code\": \"1103012007\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140019\",\n            \"name\": \"Seuneubok Teungoh\"\n        },\n        {\n            \"code\": \"1103012008\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140008\",\n            \"name\": \"Jungka Gajah\"\n        },\n        {\n            \"code\": \"1103012010\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140043\",\n            \"name\": \"Matang Pineung\"\n        },\n        {\n            \"code\": \"1103012015\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140016\",\n            \"name\": \"Alue Gadeng\"\n        },\n        {\n            \"code\": \"1103012016\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140013\",\n            \"name\": \"Kapai Baro\"\n        },\n        {\n            \"code\": \"1103012019\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140012\",\n            \"name\": \"Seuneubok  Buloh\"\n        },\n        {\n            \"code\": \"1103012020\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140011\",\n            \"name\": \"Gaseh Sayang\"\n        },\n        {\n            \"code\": \"1103012021\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140002\",\n            \"name\": \"Alue Lhok\"\n        },\n        {\n            \"code\": \"1103012022\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140017\",\n            \"name\": \"Trieng Gadeng\"\n        },\n        {\n            \"code\": \"1103012026\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140010\",\n            \"name\": \"Buket Raya\"\n        },\n        {\n            \"code\": \"1103012028\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140038\",\n            \"name\": \"Peukan Idi Cut\"\n        },\n        {\n            \"code\": \"1103012030\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140039\",\n            \"name\": \"Seuneubok  Baroh\"\n        },\n        {\n            \"code\": \"1103012034\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140041\",\n            \"name\": \"Seuneubok  Aceh\"\n        },\n        {\n            \"code\": \"1103012035\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140024\",\n            \"name\": \"Gampong Baro\"\n        },\n        {\n            \"code\": \"1103012017\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140015\",\n            \"name\": \"Seuneubok  Tuha Sa\"\n        },\n        {\n            \"code\": \"1103012018\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"\",\n            \"name\": \"Seuneubok  Tuha Dua\"\n        },\n        {\n            \"code\": \"1103012023\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140036\",\n            \"name\": \"Grong-Grong\"\n        },\n        {\n            \"code\": \"1103012024\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140042\",\n            \"name\": \"Matang Geuto\"\n        },\n        {\n            \"code\": \"1103012025\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140003\",\n            \"name\": \"Alue Merbo\"\n        },\n        {\n            \"code\": \"1103012027\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140037\",\n            \"name\": \"Gampong Keude\"\n        },\n        {\n            \"code\": \"1103012029\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140021\",\n            \"name\": \"Gampong Beunot\"\n        },\n        {\n            \"code\": \"1103012031\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140022\",\n            \"name\": \"Teupin Drum\"\n        },\n        {\n            \"code\": \"1103012032\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140023\",\n            \"name\": \"Kuala Idi Cut\"\n        },\n        {\n            \"code\": \"1103012036\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140044\",\n            \"name\": \"Bagok Panah Sa\"\n        },\n        {\n            \"code\": \"1103012037\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140045\",\n            \"name\": \"Bagok Panah Dua\"\n        },\n        {\n            \"code\": \"1103012038\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140032\",\n            \"name\": \"Bagok Panah Lhee\"\n        },\n        {\n            \"code\": \"1103012040\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140030\",\n            \"name\": \"Buket Tualang\"\n        },\n        {\n            \"code\": \"1103012044\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140035\",\n            \"name\": \"Keumuneng Peut\"\n        },\n        {\n            \"code\": \"1103012045\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140033\",\n            \"name\": \"Keumuneng Limong\"\n        },\n        {\n            \"code\": \"1103012046\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140040\",\n            \"name\": \"Meunasah Blang\"\n        },\n        {\n            \"code\": \"1103012039\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140031\",\n            \"name\": \"Bagok Panah Peut\"\n        },\n        {\n            \"code\": \"1103012041\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140014\",\n            \"name\": \"Keumuneng Sa\"\n        },\n        {\n            \"code\": \"1103012042\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140029\",\n            \"name\": \"Keumuneng Dua\"\n        },\n        {\n            \"code\": \"1103012043\",\n            \"parent_code\": \"110301\",\n            \"bps_code\": \"1105140034\",\n            \"name\": \"Keumuneng Lhee\"\n        },\n        {\n            \"code\": \"1103022002\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160017\",\n            \"name\": \"Blang Jambee\"\n        },\n        {\n            \"code\": \"1103022003\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160006\",\n            \"name\": \"Keumuneng\"\n        },\n        {\n            \"code\": \"1103022004\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160007\",\n            \"name\": \"Ladang Baro\"\n        },\n        {\n            \"code\": \"1103022005\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160011\",\n            \"name\": \"Buket Panyang\"\n        },\n        {\n            \"code\": \"1103022006\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160009\",\n            \"name\": \"Seuneubok  Rambong\"\n        },\n        {\n            \"code\": \"1103022007\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160008\",\n            \"name\": \"Seuneubok  Baro\"\n        },\n        {\n            \"code\": \"1103022009\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160018\",\n            \"name\": \"Paya Bakong\"\n        },\n        {\n            \"code\": \"1103022010\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160010\",\n            \"name\": \"Teupin Raya\"\n        },\n        {\n            \"code\": \"1103022001\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160012\",\n            \"name\": \"Blang Keumahang\"\n        },\n        {\n            \"code\": \"1103022008\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160016\",\n            \"name\": \"Blang Mideun\"\n        },\n        {\n            \"code\": \"1103022013\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160021\",\n            \"name\": \"Ulee Ateung\"\n        },\n        {\n            \"code\": \"1103022015\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160037\",\n            \"name\": \"Labuhan\"\n        },\n        {\n            \"code\": \"1103022017\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160022\",\n            \"name\": \"Mane Rampak\"\n        },\n        {\n            \"code\": \"1103022020\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"\",\n            \"name\": \"Blang Pauh Sa\"\n        },\n        {\n            \"code\": \"1103022022\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160032\",\n            \"name\": \"Ulee Tanoh\"\n        },\n        {\n            \"code\": \"1103022024\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160019\",\n            \"name\": \"Bukit Seroja\"\n        },\n        {\n            \"code\": \"1103022025\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160033\",\n            \"name\": \"Kuala Geulumpang\"\n        },\n        {\n            \"code\": \"1103022030\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160014\",\n            \"name\": \"Bukit Dindeng\"\n        },\n        {\n            \"code\": \"1103022011\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160015\",\n            \"name\": \"Lhok Rambong\"\n        },\n        {\n            \"code\": \"1103022012\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160029\",\n            \"name\": \"Julok Tunong\"\n        },\n        {\n            \"code\": \"1103022014\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160035\",\n            \"name\": \"Ulee Blang\"\n        },\n        {\n            \"code\": \"1103022016\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160036\",\n            \"name\": \"Naleung\"\n        },\n        {\n            \"code\": \"1103022018\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160028\",\n            \"name\": \"Matang\"\n        },\n        {\n            \"code\": \"1103022019\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160034\",\n            \"name\": \"Blang Uyok\"\n        },\n        {\n            \"code\": \"1103022021\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160030\",\n            \"name\": \"Blang Pauh Dua\"\n        },\n        {\n            \"code\": \"1103022023\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160031\",\n            \"name\": \"Keude Kuta Binjei\"\n        },\n        {\n            \"code\": \"1103022026\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160038\",\n            \"name\": \"Gampong Baro\"\n        },\n        {\n            \"code\": \"1103022027\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160027\",\n            \"name\": \"Tumpok Teungoh\"\n        },\n        {\n            \"code\": \"1103022028\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160039\",\n            \"name\": \"Seumatang\"\n        },\n        {\n            \"code\": \"1103022029\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160023\",\n            \"name\": \"Ujong Tunong\"\n        },\n        {\n            \"code\": \"1103022032\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160026\",\n            \"name\": \"Alue Cek Doi\"\n        },\n        {\n            \"code\": \"1103022033\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160025\",\n            \"name\": \"Blang Gleum\"\n        },\n        {\n            \"code\": \"1103022036\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160042\",\n            \"name\": \"Lhok Seuntang\"\n        },\n        {\n            \"code\": \"1103022037\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160041\",\n            \"name\": \"Simpang Lhee\"\n        },\n        {\n            \"code\": \"1103022031\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160024\",\n            \"name\": \"Paya Pasi\"\n        },\n        {\n            \"code\": \"1103022034\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160040\",\n            \"name\": \"Tanjong Tok Blang\"\n        },\n        {\n            \"code\": \"1103022035\",\n            \"parent_code\": \"110302\",\n            \"bps_code\": \"1105160013\",\n            \"name\": \"Buket Makmu\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "V2",
+			"item": [
+				{
+					"name": "Get Province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url_dev}}/v2/provinces?current_page=1&next=&prev",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"v2",
+								"provinces"
+							],
+							"query": [
+								{
+									"key": "current_page",
+									"value": "1"
+								},
+								{
+									"key": "next",
+									"value": ""
+								},
+								{
+									"key": "prev",
+									"value": null
+								},
+								{
+									"key": "codes",
+									"value": "11,12",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{base_url_dev}}/v2/provinces?current_page=1&next=&prev&codes=11,12",
+									"host": [
+										"{{base_url_dev}}"
+									],
+									"path": [
+										"v2",
+										"provinces"
+									],
+									"query": [
+										{
+											"key": "current_page",
+											"value": "1"
+										},
+										{
+											"key": "next",
+											"value": ""
+										},
+										{
+											"key": "prev",
+											"value": null
+										},
+										{
+											"key": "codes",
+											"value": "11,12"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "8dcaf1712ccc64251be7c1a6e9226a82;o=1"
+								},
+								{
+									"key": "date",
+									"value": "Sat, 18 Nov 2023 03:15:15 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "354"
+								},
+								{
+									"key": "x-request-id",
+									"value": "012c7922-8335-40de-ac87-df4660d1c8af"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"11\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"11\",\n            \"name\": \"Aceh\"\n        },\n        {\n            \"code\": \"12\",\n            \"parent_code\": \"\",\n            \"bps_code\": \"12\",\n            \"name\": \"Sumatera Utara\"\n        }\n    ],\n    \"meta\": {\n        \"item_count\": 2,\n        \"page\": {\n            \"is_cursor\": true,\n            \"current\": 1,\n            \"previous\": 0,\n            \"next\": 2,\n            \"limit\": 10,\n            \"total_page\": 1,\n            \"total\": 2\n        },\n        \"cursors\": {\n            \"next\": \"MTI=\",\n            \"previous\": \"MTE=\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Cities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_dev}}/v2/cities?current_page=1&next&prev",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"v2",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "province_codes",
+									"value": "11, 12",
+									"disabled": true
+								},
+								{
+									"key": "codes",
+									"value": "1103,1104, 1210",
+									"disabled": true
+								},
+								{
+									"key": "current_page",
+									"value": "1"
+								},
+								{
+									"key": "next",
+									"value": null
+								},
+								{
+									"key": "prev",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{base_url_dev}}/v2/cities?current_page=1&next&prev",
+									"host": [
+										"{{base_url_dev}}"
+									],
+									"path": [
+										"v2",
+										"cities"
+									],
+									"query": [
+										{
+											"key": "province_codes",
+											"value": "11, 12",
+											"disabled": true
+										},
+										{
+											"key": "codes",
+											"value": "1103,1104, 1210",
+											"disabled": true
+										},
+										{
+											"key": "current_page",
+											"value": "1"
+										},
+										{
+											"key": "next",
+											"value": null
+										},
+										{
+											"key": "prev",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "ba7d0704c138ad5bbbdd40bcb2f253fc;o=1"
+								},
+								{
+									"key": "date",
+									"value": "Sat, 18 Nov 2023 03:20:36 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "1015"
+								},
+								{
+									"key": "x-request-id",
+									"value": "bf430cfd-6e88-4787-ae70-2bcbb039dcf7"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"1105\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1107\",\n            \"name\": \"Kab. Aceh Barat\"\n        },\n        {\n            \"code\": \"1106\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1108\",\n            \"name\": \"Kab. Aceh Besar\"\n        },\n        {\n            \"code\": \"1101\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1103\",\n            \"name\": \"Kab. Aceh Selatan\"\n        },\n        {\n            \"code\": \"1110\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1102\",\n            \"name\": \"Kab. Aceh Singkil\"\n        },\n        {\n            \"code\": \"1104\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1106\",\n            \"name\": \"Kab. Aceh Tengah\"\n        },\n        {\n            \"code\": \"1102\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1104\",\n            \"name\": \"Kab. Aceh Tenggara\"\n        },\n        {\n            \"code\": \"1103\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1105\",\n            \"name\": \"Kab. Aceh Timur\"\n        },\n        {\n            \"code\": \"1108\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1111\",\n            \"name\": \"Kab. Aceh Utara\"\n        },\n        {\n            \"code\": \"1107\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1109\",\n            \"name\": \"Kab. Pidie\"\n        },\n        {\n            \"code\": \"1109\",\n            \"parent_code\": \"11\",\n            \"bps_code\": \"1101\",\n            \"name\": \"Kab. Simeulue\"\n        }\n    ],\n    \"meta\": {\n        \"item_count\": 10,\n        \"page\": {\n            \"is_cursor\": true,\n            \"current\": 1,\n            \"previous\": 0,\n            \"next\": 2,\n            \"limit\": 10,\n            \"total_page\": 51,\n            \"total\": 514\n        },\n        \"cursors\": {\n            \"next\": \"MTExMA==\",\n            \"previous\": \"MTEwMQ==\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Districts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url_dev}}/v2/districts?current_page=1&next&prev",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"v2",
+								"districts"
+							],
+							"query": [
+								{
+									"key": "city_codes",
+									"value": "1103, 1104 ",
+									"disabled": true
+								},
+								{
+									"key": "codes",
+									"value": "110302, 110301",
+									"disabled": true
+								},
+								{
+									"key": "current_page",
+									"value": "1"
+								},
+								{
+									"key": "next",
+									"value": null
+								},
+								{
+									"key": "prev",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{base_url_dev}}/v2/districts?current_page=1&next&prev",
+									"host": [
+										"{{base_url_dev}}"
+									],
+									"path": [
+										"v2",
+										"districts"
+									],
+									"query": [
+										{
+											"key": "city_codes",
+											"value": "1103, 1104 ",
+											"disabled": true
+										},
+										{
+											"key": "codes",
+											"value": "110302, 110301",
+											"disabled": true
+										},
+										{
+											"key": "current_page",
+											"value": "1"
+										},
+										{
+											"key": "next",
+											"value": null
+										},
+										{
+											"key": "prev",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "ffdfd4e652e0502c9ff501cd35f9c982;o=1"
+								},
+								{
+									"key": "date",
+									"value": "Sat, 18 Nov 2023 03:22:16 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "1023"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a53b9809-4171-48c6-8f3c-42dcf3a83f07"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"110101\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103020\",\n            \"name\": \"Bakongan\"\n        },\n        {\n            \"code\": \"110103\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103030\",\n            \"name\": \"Kluet Selatan\"\n        },\n        {\n            \"code\": \"110102\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103040\",\n            \"name\": \"Kluet Utara\"\n        },\n        {\n            \"code\": \"110104\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103090\",\n            \"name\": \"Labuhan Haji\"\n        },\n        {\n            \"code\": \"110105\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103080\",\n            \"name\": \"Meukek\"\n        },\n        {\n            \"code\": \"110110\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103041\",\n            \"name\": \"Pasi Raja\"\n        },\n        {\n            \"code\": \"110106\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103060\",\n            \"name\": \"Samadua\"\n        },\n        {\n            \"code\": \"110107\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103070\",\n            \"name\": \"Sawang\"\n        },\n        {\n            \"code\": \"110108\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103050\",\n            \"name\": \"Tapaktuan\"\n        },\n        {\n            \"code\": \"110109\",\n            \"parent_code\": \"1101\",\n            \"bps_code\": \"1103010\",\n            \"name\": \"Trumon\"\n        }\n    ],\n    \"meta\": {\n        \"item_count\": 10,\n        \"page\": {\n            \"is_cursor\": true,\n            \"current\": 1,\n            \"previous\": 0,\n            \"next\": 2,\n            \"limit\": 10,\n            \"total_page\": 727,\n            \"total\": 7277\n        },\n        \"cursors\": {\n            \"next\": \"MTEwMTEw\",\n            \"previous\": \"MTEwMTAx\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Sub Districts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_dev}}/v2/sub-districts?current_page=1&next&prev",
+							"host": [
+								"{{base_url_dev}}"
+							],
+							"path": [
+								"v2",
+								"sub-districts"
+							],
+							"query": [
+								{
+									"key": "district_codes",
+									"value": "110301, 110302",
+									"disabled": true
+								},
+								{
+									"key": "codes",
+									"value": "1103012002, 1103012004 ,1103022004 ",
+									"disabled": true
+								},
+								{
+									"key": "current_page",
+									"value": "1"
+								},
+								{
+									"key": "next",
+									"value": null
+								},
+								{
+									"key": "prev",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c2FyYW5hLXdpbGF5YWgtZGV2OjEyMzQ1Njc4OTA=",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{base_url_dev}}/v2/sub-districts?current_page=1&next&prev",
+									"host": [
+										"{{base_url_dev}}"
+									],
+									"path": [
+										"v2",
+										"sub-districts"
+									],
+									"query": [
+										{
+											"key": "district_codes",
+											"value": "110301, 110302",
+											"disabled": true
+										},
+										{
+											"key": "codes",
+											"value": "1103012002, 1103012004 ,1103022004 ",
+											"disabled": true
+										},
+										{
+											"key": "current_page",
+											"value": "1"
+										},
+										{
+											"key": "next",
+											"value": null
+										},
+										{
+											"key": "prev",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "x-cloud-trace-context",
+									"value": "301b974a610e385fa7174ee9b3425816;o=1"
+								},
+								{
+									"key": "date",
+									"value": "Sat, 18 Nov 2023 03:24:47 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "1176"
+								},
+								{
+									"key": "x-request-id",
+									"value": "dd907c3c-35bf-4c0f-b20f-230379227bc1"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google, 1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"error\": false,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"code\": \"1101012015\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020023\",\n            \"name\": \"Darul Ikhsan\"\n        },\n        {\n            \"code\": \"1101022001\",\n            \"parent_code\": \"110102\",\n            \"bps_code\": \"1103040015\",\n            \"name\": \"Fajar Harapan\"\n        },\n        {\n            \"code\": \"1101012017\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020003\",\n            \"name\": \"Gampong Baro\"\n        },\n        {\n            \"code\": \"1101012004\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020015\",\n            \"name\": \"Gampong Drien\"\n        },\n        {\n            \"code\": \"1101012001\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020002\",\n            \"name\": \"Keude Bakongan\"\n        },\n        {\n            \"code\": \"1101022002\",\n            \"parent_code\": \"110102\",\n            \"bps_code\": \"1103040013\",\n            \"name\": \"Krueng Batee\"\n        },\n        {\n            \"code\": \"1101012016\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020024\",\n            \"name\": \"Padang Beurahan\"\n        },\n        {\n            \"code\": \"1101022003\",\n            \"parent_code\": \"110102\",\n            \"bps_code\": \"1103040014\",\n            \"name\": \"Pasi Kuala Asahan\"\n        },\n        {\n            \"code\": \"1101012002\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020001\",\n            \"name\": \"Ujong Mangki\"\n        },\n        {\n            \"code\": \"1101012003\",\n            \"parent_code\": \"110101\",\n            \"bps_code\": \"1103020014\",\n            \"name\": \"Ujong Padang\"\n        }\n    ],\n    \"meta\": {\n        \"item_count\": 10,\n        \"page\": {\n            \"is_cursor\": true,\n            \"current\": 1,\n            \"previous\": 0,\n            \"next\": 2,\n            \"limit\": 10,\n            \"total_page\": 8377,\n            \"total\": 83772\n        },\n        \"cursors\": {\n            \"next\": \"MTEwMTAyMjAwMw==\",\n            \"previous\": \"MTEwMTAxMjAwMQ==\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_url_dev",
+			"value": "https://api-dev.dto.kemkes.go.id/oauth2/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "1Qd0qmtWCz7EB1GO6srmtuZe4ButsjvGYSwaJ8WFf5yOQr17",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "ij6BLAbbAGB9A2lAl8wGkjEut9xXAwMlNbbvCos5tAjsKtGLPkAtOL3wkNEWKicK",
+			"type": "string"
+		},
+		{
+			"key": "base_url_dev",
+			"value": "https://api-dev.dto.kemkes.go.id/masterdata",
+			"type": "string"
+		}
+	]
+}

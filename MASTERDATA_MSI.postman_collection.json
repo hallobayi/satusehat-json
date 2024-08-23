@@ -1,0 +1,1561 @@
+{
+	"info": {
+		"_postman_id": "efaeeebb-f3f0-4f56-a98e-56f384e28733",
+		"name": "Master Data API - APIGEE New",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23783072"
+	},
+	"item": [
+		{
+			"name": "O-Auth2",
+			"item": [
+				{
+					"name": "Generate Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();",
+									"pm.collectionVariables.set(\"token\", data.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url}}/accesstoken?grant_type=client_credentials",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"accesstoken"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "V1",
+			"item": [
+				{
+					"name": "Master Sarana Index",
+					"item": [
+						{
+							"name": "Get Master Sarana Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=104&status_aktif=true&jenis_sarana=101",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"mastersaranaindex",
+										"mastersarana"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "104"
+										},
+										{
+											"key": "kode_satusehat",
+											"value": "1000201991",
+											"disabled": true
+										},
+										{
+											"key": "kode_sarana",
+											"value": "1235959",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "pratama",
+											"disabled": true
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "kode_kabkota",
+											"value": "3501",
+											"disabled": true
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "350105",
+											"disabled": true
+										},
+										{
+											"key": "status_aktif",
+											"value": "true"
+										},
+										{
+											"key": "status_sarana",
+											"value": "verified",
+											"disabled": true
+										},
+										{
+											"key": "sumber_identifier",
+											"value": "dto_msfi",
+											"disabled": true
+										},
+										{
+											"key": "identifier_kode_sarana",
+											"value": "1000160630",
+											"disabled": true
+										},
+										{
+											"key": "lower_bound_updated_at",
+											"value": "2023-08-01",
+											"disabled": true
+										},
+										{
+											"key": "upper_bound_updated_at",
+											"value": "2023-08-02",
+											"disabled": true
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "101"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success - Public Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=104&status_aktif=true&jenis_sarana=101",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"mastersaranaindex",
+												"mastersarana"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "104"
+												},
+												{
+													"key": "kode_satusehat",
+													"value": "1000201991",
+													"disabled": true
+												},
+												{
+													"key": "kode_sarana",
+													"value": "1235959",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "pratama",
+													"disabled": true
+												},
+												{
+													"key": "kode_provinsi",
+													"value": "35",
+													"disabled": true
+												},
+												{
+													"key": "kode_kabkota",
+													"value": "3501",
+													"disabled": true
+												},
+												{
+													"key": "kode_kecamatan",
+													"value": "350105",
+													"disabled": true
+												},
+												{
+													"key": "status_aktif",
+													"value": "true"
+												},
+												{
+													"key": "status_sarana",
+													"value": "verified",
+													"disabled": true
+												},
+												{
+													"key": "sumber_identifier",
+													"value": "dto_msfi",
+													"disabled": true
+												},
+												{
+													"key": "identifier_kode_sarana",
+													"value": "1000160630",
+													"disabled": true
+												},
+												{
+													"key": "lower_bound_updated_at",
+													"value": "2023-08-01",
+													"disabled": true
+												},
+												{
+													"key": "upper_bound_updated_at",
+													"value": "2023-08-02",
+													"disabled": true
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "101"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "0f48c81ee472aac52711f440907592a3;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Thu, 17 Aug 2023 23:53:04 GMT"
+										},
+										{
+											"key": "cache-control",
+											"value": "private"
+										},
+										{
+											"key": "x-request-id",
+											"value": "78a29eb8-8ab6-490b-924b-92d32e17232e"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google, 1.1 google"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"page\": 1,\n    \"total_page\": 1820,\n    \"data\": [\n        {\n            \"kode_satusehat\": \"1000556982\",\n            \"kode_sarana\": \"64740100009\",\n            \"nama\": \"Praktek Mandiri Dokter Gigi Maria Lidwina Hendrata\",\n            \"telp\": \"054822394\",\n            \"email\": \"lidwinahendrata@yahoo.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000088325\",\n                \"nama\": \"BONTANG BARAT\",\n                \"kode_sarana\": \"64740200006\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl. M. Efendi AAA no 5 BTN PKT, RT. 36, kelurahan Belimbing, kecamatan Bontang Barat, Bontang\",\n            \"provinsi\": {\n                \"kode\": \"64\",\n                \"nama\": \"Kalimantan Timur\",\n                \"kode_bps\": \"64\",\n                \"kode_lama\": \"64\"\n            },\n            \"kabkota\": {\n                \"kode\": \"6474\",\n                \"nama\": \"Kota Bontang\",\n                \"kode_bps\": \"6474\",\n                \"kode_lama\": \"6474\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10104\",\n                \"nama\": \"Dokter Gigi\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000036499\",\n            \"kode_sarana\": \"31730100080\",\n            \"nama\": \"Praktek Mandiri Bidan Husdiati\",\n            \"telp\": \"081294465502_\",\n            \"email\": \"bidanhusdiati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000120367\",\n                \"nama\": \"Kel.  RAWA BUAYA\",\n                \"kode_sarana\": \"31730200052\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"jl klingkit RT 004 RW 012 No 35 Kel. rawa Buaya Kec.Cengkareng Jakarta Barat\",\n            \"provinsi\": {\n                \"kode\": \"31\",\n                \"nama\": \"DKI Jakarta\",\n                \"kode_bps\": \"31\",\n                \"kode_lama\": \"31\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3173\",\n                \"nama\": \"Kota Adm. Jakarta Barat\",\n                \"kode_bps\": \"3174\",\n                \"kode_lama\": \"3173\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000528636\",\n            \"kode_sarana\": \"33230100005\",\n            \"nama\": \"Praktek Mandiri dr. Frisca Yudawati\",\n            \"telp\": \"08562528843\",\n            \"email\": \"friscayudawati@ymail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000054843\",\n                \"nama\": \"BANSARI\",\n                \"kode_sarana\": \"33230200004\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Srimulyo RT 3 RW 4 Bansari Temanggung Jawa Tengah\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3323\",\n                \"nama\": \"Kab. Temanggung\",\n                \"kode_bps\": \"3323\",\n                \"kode_lama\": \"3323\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000017182\",\n            \"kode_sarana\": \"73090100009\",\n            \"nama\": \"PRAKTIK MANDIRI BIDAN HJ. FATMAWATI, S.ST\",\n            \"telp\": \"082196442588\",\n            \"email\": \"Fatmawatihamzah5@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000074958\",\n                \"nama\": \"TURIKALE\",\n                \"kode_sarana\": \"73090200005\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl.A.P.Pettarani depan SD 7\",\n            \"provinsi\": {\n                \"kode\": \"73\",\n                \"nama\": \"Sulawesi Selatan\",\n                \"kode_bps\": \"73\",\n                \"kode_lama\": \"73\"\n            },\n            \"kabkota\": {\n                \"kode\": \"7309\",\n                \"nama\": \"Kab. Maros\",\n                \"kode_bps\": \"7308\",\n                \"kode_lama\": \"7309\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000014180\",\n            \"kode_sarana\": \"35120100001\",\n            \"nama\": \"DPP Dr. Juni Setiawan\",\n            \"telp\": null,\n            \"email\": \"junisetia@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000068648\",\n                \"nama\": \"BANYUPUTIH\",\n                \"kode_sarana\": \"35120200017\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Kp.Sukorejo,RT 01/RW 03,desa Sumberejo kecamatan Banyuputih\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3512\",\n                \"nama\": \"Kab. Situbondo\",\n                \"kode_bps\": \"3512\",\n                \"kode_lama\": \"3512\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000030794\",\n            \"kode_sarana\": \"35150100013\",\n            \"nama\": \"Praktik Mandiri Bidan Heni Kusumawati, A.Md. Keb\",\n            \"telp\": \"087703393074\",\n            \"email\": \"henikusumawati97@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000104997\",\n                \"nama\": \"TAMAN\",\n                \"kode_sarana\": \"35150200022\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl. Puyuh No 21 RT 07 RW 06 Sepanjang\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3515\",\n                \"nama\": \"Kab. Sidoarjo\",\n                \"kode_bps\": \"3515\",\n                \"kode_lama\": \"3515\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000035469\",\n            \"kode_sarana\": \"15090100010\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER Asti Prasumma\",\n            \"telp\": \"082226564440\",\n            \"email\": \"astiprasumma2@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000120056\",\n                \"nama\": \"RIMBO BUJANG IX\",\n                \"kode_sarana\": \"15090200008\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jalan Telanai Pura, RT/RW 006/-, Desa Sido Rukun\",\n            \"provinsi\": {\n                \"kode\": \"15\",\n                \"nama\": \"Jambi\",\n                \"kode_bps\": \"15\",\n                \"kode_lama\": \"15\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1509\",\n                \"nama\": \"Kab. Tebo\",\n                \"kode_bps\": \"1508\",\n                \"kode_lama\": \"1509\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000006585\",\n            \"kode_sarana\": \"31710100063\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER DR RETNO JUWITA HANUM\",\n            \"telp\": \"08119990992\",\n            \"email\": \"dr.wita99@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Apartemen Salemba unit A0202 jalan Salemba Tengah II no 10\",\n            \"provinsi\": {\n                \"kode\": \"31\",\n                \"nama\": \"DKI Jakarta\",\n                \"kode_bps\": \"31\",\n                \"kode_lama\": \"31\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3171\",\n                \"nama\": \"Kota Adm. Jakarta Pusat\",\n                \"kode_bps\": \"3173\",\n                \"kode_lama\": \"3171\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000551164\",\n            \"kode_sarana\": \"33740174437\",\n            \"nama\": \"PRAKTIK MANDIRI BIDAN\",\n            \"telp\": null,\n            \"email\": \"ekokusumowati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": false,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000080139\",\n                \"nama\": \"NGALIYAN\",\n                \"kode_sarana\": \"33740200035\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"PMB EKO KUSUMOWATI S.TR.KEB\\r\\nKEMANTREN RT 1 RW 4\\r\\nKELURAHAN WONOSARI\\r\\nKECAMATAN NGALIAN\\r\\nKOTA SEMARANG\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3374\",\n                \"nama\": \"Kota Semarang\",\n                \"kode_bps\": \"3374\",\n                \"kode_lama\": \"3374\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000001107\",\n            \"kode_sarana\": \"51010100013\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER Ni Made Budi Kusuma Wati\",\n            \"telp\": \"082145868081\",\n            \"email\": \"madebudikusumawati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000049642\",\n                \"nama\": \"I MELAYA\",\n                \"kode_sarana\": \"51010200002\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Dsn. Sumber Sari, Ds Melaya, Kec. Melaya, Kab.  Jembrana\",\n            \"provinsi\": {\n                \"kode\": \"51\",\n                \"nama\": \"Bali\",\n                \"kode_bps\": \"51\",\n                \"kode_lama\": \"51\"\n            },\n            \"kabkota\": {\n                \"kode\": \"5101\",\n                \"nama\": \"Kab. Jembrana\",\n                \"kode_bps\": \"5101\",\n                \"kode_lama\": \"5101\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Master Sarana Index - RS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=104&status_aktif=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"mastersaranaindex",
+										"mastersarana"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "104"
+										},
+										{
+											"key": "kode_satusehat",
+											"value": "1000201991",
+											"disabled": true
+										},
+										{
+											"key": "kode_sarana",
+											"value": "1235959",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "pratama",
+											"disabled": true
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "kode_kabkota",
+											"value": "3501",
+											"disabled": true
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "350105",
+											"disabled": true
+										},
+										{
+											"key": "status_aktif",
+											"value": "true"
+										},
+										{
+											"key": "status_sarana",
+											"value": "verified",
+											"disabled": true
+										},
+										{
+											"key": "sumber_identifier",
+											"value": "dto_msfi",
+											"disabled": true
+										},
+										{
+											"key": "identifier_kode_sarana",
+											"value": "1000160630",
+											"disabled": true
+										},
+										{
+											"key": "lower_bound_updated_at",
+											"value": "2023-08-01",
+											"disabled": true
+										},
+										{
+											"key": "upper_bound_updated_at",
+											"value": "2023-08-02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success - Public Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=104&status_aktif=true",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"mastersaranaindex",
+												"mastersarana"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "104"
+												},
+												{
+													"key": "kode_satusehat",
+													"value": "1000201991",
+													"disabled": true
+												},
+												{
+													"key": "kode_sarana",
+													"value": "1235959",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "pratama",
+													"disabled": true
+												},
+												{
+													"key": "kode_provinsi",
+													"value": "35",
+													"disabled": true
+												},
+												{
+													"key": "kode_kabkota",
+													"value": "3501",
+													"disabled": true
+												},
+												{
+													"key": "kode_kecamatan",
+													"value": "350105",
+													"disabled": true
+												},
+												{
+													"key": "status_aktif",
+													"value": "true"
+												},
+												{
+													"key": "status_sarana",
+													"value": "verified",
+													"disabled": true
+												},
+												{
+													"key": "sumber_identifier",
+													"value": "dto_msfi",
+													"disabled": true
+												},
+												{
+													"key": "identifier_kode_sarana",
+													"value": "1000160630",
+													"disabled": true
+												},
+												{
+													"key": "lower_bound_updated_at",
+													"value": "2023-08-01",
+													"disabled": true
+												},
+												{
+													"key": "upper_bound_updated_at",
+													"value": "2023-08-02",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "13cbe7cd2e476f05197af3cc0e3daf83"
+										},
+										{
+											"key": "date",
+											"value": "Thu, 17 Aug 2023 23:49:24 GMT"
+										},
+										{
+											"key": "cache-control",
+											"value": "private"
+										},
+										{
+											"key": "x-request-id",
+											"value": "5ef8540e-b3ad-4b38-bfbb-5cc1c9048c65"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google, 1.1 google"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"page\": 1,\n    \"total_page\": 332,\n    \"data\": [\n        {\n            \"kode_satusehat\": \"1000262775\",\n            \"kode_sarana\": \"3275070\",\n            \"nama\": \"RS umum Daerah Teluk Pucung\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Lingkar Utara Kel. Teluk Pucung Kec. Bekasi Utara\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3275\",\n                \"nama\": \"Kota Bekasi\",\n                \"kode_bps\": \"3275\",\n                \"kode_lama\": \"3275\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000282036\",\n            \"kode_sarana\": \"7471055\",\n            \"nama\": \"RS PMI Kendari\",\n            \"telp\": \"0401-3121064\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Mayjend S.Parman No.35 Kendari\",\n            \"provinsi\": {\n                \"kode\": \"74\",\n                \"nama\": \"Sulawesi Tenggara\",\n                \"kode_bps\": \"74\",\n                \"kode_lama\": \"74\"\n            },\n            \"kabkota\": {\n                \"kode\": \"7471\",\n                \"nama\": \"Kota Kendari\",\n                \"kode_bps\": \"7471\",\n                \"kode_lama\": \"7471\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"BT\",\n                \"nama\": \"Belum Ditetapkan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000279170\",\n            \"kode_sarana\": \"3213044\",\n            \"nama\": \"RS Umum Mutiara Hati\",\n            \"telp\": \"(0260) 451828\",\n            \"email\": null,\n            \"website\": \"www.kasih-group.com\",\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Raya Pagaden Rt 15/04 Desa Sukamulya Kec.Pagaden Subang\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3213\",\n                \"nama\": \"Kab. Subang\",\n                \"kode_bps\": \"3213\",\n                \"kode_lama\": \"3213\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"farmalkes\",\n                \"nama\": \"Farmasi & Alat Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000269814\",\n            \"kode_sarana\": \"1274061\",\n            \"nama\": \"RS Umum Natama\",\n            \"telp\": \"0621-24404\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Kartini No. 30A Tebing Tinggi\",\n            \"provinsi\": {\n                \"kode\": \"12\",\n                \"nama\": \"Sumatera Utara\",\n                \"kode_bps\": \"12\",\n                \"kode_lama\": \"12\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1276\",\n                \"nama\": \"Kota Tebing Tinggi\",\n                \"kode_bps\": \"1274\",\n                \"kode_lama\": \"1276\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000267476\",\n            \"kode_sarana\": \"3604054\",\n            \"nama\": \"RS Tonggak Husada\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": \"www.rstonggakhusada.co.id\",\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Raya Bojonegara Kp. Tunggak RT. 002 RW. 002 Ds. Kertasana Kec. Bojonegara\",\n            \"provinsi\": {\n                \"kode\": \"36\",\n                \"nama\": \"Banten\",\n                \"kode_bps\": \"36\",\n                \"kode_lama\": \"36\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3604\",\n                \"nama\": \"Kab. Serang\",\n                \"kode_bps\": \"3604\",\n                \"kode_lama\": \"3604\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000263925\",\n            \"kode_sarana\": \"1702034\",\n            \"nama\": \"RS Pembantu Curup Bengkulu\",\n            \"telp\": null,\n            \"email\": \"Rumkitbancurup@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Zainal Bakti Curup Propinsi Bengkulu\",\n            \"provinsi\": {\n                \"kode\": \"17\",\n                \"nama\": \"Bengkulu\",\n                \"kode_bps\": \"17\",\n                \"kode_lama\": \"17\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1702\",\n                \"nama\": \"Kab. Rejang Lebong\",\n                \"kode_bps\": \"1702\",\n                \"kode_lama\": \"1702\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000273243\",\n            \"kode_sarana\": \"1276090\",\n            \"nama\": \"RS Umum Raskita\",\n            \"telp\": \"081362409111\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Let. Jend. Jamin Ginting No. 362 Binjai, Kec. Binjai Selatan\",\n            \"provinsi\": {\n                \"kode\": \"12\",\n                \"nama\": \"Sumatera Utara\",\n                \"kode_bps\": \"12\",\n                \"kode_lama\": \"12\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1275\",\n                \"nama\": \"Kota Binjai\",\n                \"kode_bps\": \"1276\",\n                \"kode_lama\": \"1275\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000266616\",\n            \"kode_sarana\": \"1208068\",\n            \"nama\": \"RS Seger Waras\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jalinsum Aek Ledong Dusun III Desa Ledong Barat Kec. Aek Ledong\",\n            \"provinsi\": {\n                \"kode\": \"12\",\n                \"nama\": \"Sumatera Utara\",\n                \"kode_bps\": \"12\",\n                \"kode_lama\": \"12\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1209\",\n                \"nama\": \"Kab. Asahan\",\n                \"kode_bps\": \"1208\",\n                \"kode_lama\": \"1209\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000272627\",\n            \"kode_sarana\": \"1223007\",\n            \"nama\": \"RS Umum dr. Rangkuti\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Lintas Sumatera Kampung Pajak Desa Kampung Pajak Kec. Na IX-X\",\n            \"provinsi\": {\n                \"kode\": \"12\",\n                \"nama\": \"Sumatera Utara\",\n                \"kode_bps\": \"12\",\n                \"kode_lama\": \"12\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1223\",\n                \"nama\": \"Kab. Labuhanbatu Utara\",\n                \"kode_bps\": \"1223\",\n                \"kode_lama\": \"1223\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"nakes\",\n                \"nama\": \"Pendidikan & Pelatihan Tenaga Kesehatan\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000260600\",\n            \"kode_sarana\": \"9110011\",\n            \"nama\": \"RS Umum Pratama Type D Kab. Maybrat\",\n            \"telp\": \"085244394272_\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Susumuk-Kumurkek Sonere Aifat Maybrat Papua Barat\",\n            \"provinsi\": {\n                \"kode\": \"96\",\n                \"nama\": \"Papua Barat Daya\",\n                \"kode_bps\": null,\n                \"kode_lama\": \"96\"\n            },\n            \"kabkota\": {\n                \"kode\": \"9605\",\n                \"nama\": \"Kab. Maybrat\",\n                \"kode_bps\": \"9110\",\n                \"kode_lama\": \"9210\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"104\",\n                \"nama\": \"Rumah Sakit\",\n                \"nama_alt\": \"RS\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10401\",\n                \"nama\": \"Rumah Sakit Umum\",\n                \"nama_alt\": \"RSU\"\n            },\n            \"kelas_sarana\": {\n                \"kode\": \"other\",\n                \"nama\": \"Sarana Kesehatan Lainnya\"\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Master Sarana Index - Klinik",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=103&status_aktif=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"mastersaranaindex",
+										"mastersarana"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "103"
+										},
+										{
+											"key": "kode_satusehat",
+											"value": "1000201991",
+											"disabled": true
+										},
+										{
+											"key": "kode_sarana",
+											"value": "1235959",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "pratama",
+											"disabled": true
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "kode_kabkota",
+											"value": "3501",
+											"disabled": true
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "350105",
+											"disabled": true
+										},
+										{
+											"key": "status_aktif",
+											"value": "true"
+										},
+										{
+											"key": "status_sarana",
+											"value": "verified",
+											"disabled": true
+										},
+										{
+											"key": "sumber_identifier",
+											"value": "dto_msfi",
+											"disabled": true
+										},
+										{
+											"key": "identifier_kode_sarana",
+											"value": "1000160630",
+											"disabled": true
+										},
+										{
+											"key": "lower_bound_updated_at",
+											"value": "2023-08-01",
+											"disabled": true
+										},
+										{
+											"key": "upper_bound_updated_at",
+											"value": "2023-08-02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success - Public Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=103&status_aktif=true",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"mastersaranaindex",
+												"mastersarana"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "103"
+												},
+												{
+													"key": "kode_satusehat",
+													"value": "1000201991",
+													"disabled": true
+												},
+												{
+													"key": "kode_sarana",
+													"value": "1235959",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "pratama",
+													"disabled": true
+												},
+												{
+													"key": "kode_provinsi",
+													"value": "35",
+													"disabled": true
+												},
+												{
+													"key": "kode_kabkota",
+													"value": "3501",
+													"disabled": true
+												},
+												{
+													"key": "kode_kecamatan",
+													"value": "350105",
+													"disabled": true
+												},
+												{
+													"key": "status_aktif",
+													"value": "true"
+												},
+												{
+													"key": "status_sarana",
+													"value": "verified",
+													"disabled": true
+												},
+												{
+													"key": "sumber_identifier",
+													"value": "dto_msfi",
+													"disabled": true
+												},
+												{
+													"key": "identifier_kode_sarana",
+													"value": "1000160630",
+													"disabled": true
+												},
+												{
+													"key": "lower_bound_updated_at",
+													"value": "2023-08-01",
+													"disabled": true
+												},
+												{
+													"key": "upper_bound_updated_at",
+													"value": "2023-08-02",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "56b144ea6e5ca7f88a255686fcf146f2;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Thu, 17 Aug 2023 23:49:15 GMT"
+										},
+										{
+											"key": "cache-control",
+											"value": "private"
+										},
+										{
+											"key": "x-request-id",
+											"value": "b637cb63-df90-4a2b-9225-2d9418b5f773"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google, 1.1 google"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"page\": 1,\n    \"total_page\": 1541,\n    \"data\": [\n        {\n            \"kode_satusehat\": \"1000156689\",\n            \"kode_sarana\": \"1230458\",\n            \"nama\": \"Klinik TelkoMedika Health Center 19 Bogor\",\n            \"telp\": \"082128617274_\",\n            \"email\": \"thc19bogor.telkomedika@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Pengadilan No. 14, RT. 02/ RW. 01, Kelurahan Pabaton, Kecamatan Bogor Tengah, Kota Bogor\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3271\",\n                \"nama\": \"Kota Bogor\",\n                \"kode_bps\": \"3271\",\n                \"kode_lama\": \"3271\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000160630\",\n            \"kode_sarana\": \"1232465\",\n            \"nama\": \"Klinik Pratama 2000 Polres Bojonegoro\",\n            \"telp\": \"082336533395\",\n            \"email\": \"urkespolresbojonegoro@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl.MH.Thamrin No.46 Bojonegoro\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3522\",\n                \"nama\": \"Kab. Bojonegoro\",\n                \"kode_bps\": \"3522\",\n                \"kode_lama\": \"3522\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000217720\",\n            \"kode_sarana\": \"1234696\",\n            \"nama\": \"klinik Asshofwan\",\n            \"telp\": \"021-89140813\",\n            \"email\": \"asshofwan20@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Kp Kedung gede Rt007/003 Ds Kedung Waringin kec kedung waringin kab  Bekasi\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3216\",\n                \"nama\": \"Kab. Bekasi\",\n                \"kode_bps\": \"3216\",\n                \"kode_lama\": \"3216\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000187781\",\n            \"kode_sarana\": \"1232736\",\n            \"nama\": \"KLINIK RAWAT JALAN RAMPAL\",\n            \"telp\": \"0341 -3012272\",\n            \"email\": \"klinikrawatjalanrampal@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"JL. PANGLIMA SUDIRMAN E.20\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3573\",\n                \"nama\": \"Kota Malang\",\n                \"kode_bps\": \"3573\",\n                \"kode_lama\": \"3573\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000169349\",\n            \"kode_sarana\": \"1231999\",\n            \"nama\": \"Klinik Pratama Rawat Inap An Nuur\",\n            \"telp\": \"082225013810_\",\n            \"email\": \"klinikpratamaannuur@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jalan Pakel No. 33 Baturan Colomadu Karanganyar\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3313\",\n                \"nama\": \"Kab. Karanganyar\",\n                \"kode_bps\": \"3313\",\n                \"kode_lama\": \"3313\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000171079\",\n            \"kode_sarana\": \"1236516\",\n            \"nama\": \"Klinik Utama Rawat Inap PDHI\",\n            \"telp\": \"082138043920\",\n            \"email\": \"klinikpdhi@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Jogja-Wonosari No.73, Siyono Wetan, Logandeng, Playen, Gunungkidul\",\n            \"provinsi\": {\n                \"kode\": \"34\",\n                \"nama\": \"Yogyakarta\",\n                \"kode_bps\": \"34\",\n                \"kode_lama\": \"34\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3403\",\n                \"nama\": \"Kab. Gunungkidul\",\n                \"kode_bps\": \"3403\",\n                \"kode_lama\": \"3403\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10302\",\n                \"nama\": \"Klinik Utama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000199241\",\n            \"kode_sarana\": \"1231800\",\n            \"nama\": \"SURYA MEDIKA KARANGAWEN\",\n            \"telp\": \"024 76583177\",\n            \"email\": \"surmedkarangawen@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"JL.RAYA KEMBANGARUM 326 MRANGGEN DEMAK\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3321\",\n                \"nama\": \"Kab. Demak\",\n                \"kode_bps\": \"3321\",\n                \"kode_lama\": \"3321\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000239613\",\n            \"kode_sarana\": \"1232024\",\n            \"nama\": \"Klinik Sentra Medika\",\n            \"telp\": \"(0287) 6651962\",\n            \"email\": \"manajemen.ksm@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Wadaslintang KM 05, Desa Mulyosri, Kecamatan Prembun, Kabupaten Kebumen, 54394\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3305\",\n                \"nama\": \"Kab. Kebumen\",\n                \"kode_bps\": \"3305\",\n                \"kode_lama\": \"3305\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000171055\",\n            \"kode_sarana\": \"1234658\",\n            \"nama\": \"Klinik mu'aawanah\",\n            \"telp\": \"087839511789_\",\n            \"email\": \"klinikmuawanah3@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"WILAYU 1/11, PACAREJO, SEMANU, GUNUNGKIDUL\",\n            \"provinsi\": {\n                \"kode\": \"34\",\n                \"nama\": \"Yogyakarta\",\n                \"kode_bps\": \"34\",\n                \"kode_lama\": \"34\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3403\",\n                \"nama\": \"Kab. Gunungkidul\",\n                \"kode_bps\": \"3403\",\n                \"kode_lama\": \"3403\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000208262\",\n            \"kode_sarana\": \"1232475\",\n            \"nama\": \"Satria Namira Husada 49\",\n            \"telp\": \"0811324033___\",\n            \"email\": \"klinikbpjs49@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Raya Buduran No 337 Buduran Sidoarjo\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3515\",\n                \"nama\": \"Kab. Sidoarjo\",\n                \"kode_bps\": \"3515\",\n                \"kode_lama\": \"3515\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"103\",\n                \"nama\": \"Klinik\",\n                \"nama_alt\": \"Klinik\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10301\",\n                \"nama\": \"Klinik Pratama\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Master Sarana Index - Puskesmas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=102&status_aktif=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"mastersaranaindex",
+										"mastersarana"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "102"
+										},
+										{
+											"key": "kode_satusehat",
+											"value": "1000201991",
+											"disabled": true
+										},
+										{
+											"key": "kode_sarana",
+											"value": "1235959",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "pratama",
+											"disabled": true
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "kode_kabkota",
+											"value": "3501",
+											"disabled": true
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "350105",
+											"disabled": true
+										},
+										{
+											"key": "status_aktif",
+											"value": "true"
+										},
+										{
+											"key": "status_sarana",
+											"value": "verified",
+											"disabled": true
+										},
+										{
+											"key": "sumber_identifier",
+											"value": "dto_msfi",
+											"disabled": true
+										},
+										{
+											"key": "identifier_kode_sarana",
+											"value": "1000160630",
+											"disabled": true
+										},
+										{
+											"key": "lower_bound_updated_at",
+											"value": "2023-08-01",
+											"disabled": true
+										},
+										{
+											"key": "upper_bound_updated_at",
+											"value": "2023-08-02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success - Public Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=102&status_aktif=true",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"mastersaranaindex",
+												"mastersarana"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "102"
+												},
+												{
+													"key": "kode_satusehat",
+													"value": "1000201991",
+													"disabled": true
+												},
+												{
+													"key": "kode_sarana",
+													"value": "1235959",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "pratama",
+													"disabled": true
+												},
+												{
+													"key": "kode_provinsi",
+													"value": "35",
+													"disabled": true
+												},
+												{
+													"key": "kode_kabkota",
+													"value": "3501",
+													"disabled": true
+												},
+												{
+													"key": "kode_kecamatan",
+													"value": "350105",
+													"disabled": true
+												},
+												{
+													"key": "status_aktif",
+													"value": "true"
+												},
+												{
+													"key": "status_sarana",
+													"value": "verified",
+													"disabled": true
+												},
+												{
+													"key": "sumber_identifier",
+													"value": "dto_msfi",
+													"disabled": true
+												},
+												{
+													"key": "identifier_kode_sarana",
+													"value": "1000160630",
+													"disabled": true
+												},
+												{
+													"key": "lower_bound_updated_at",
+													"value": "2023-08-01",
+													"disabled": true
+												},
+												{
+													"key": "upper_bound_updated_at",
+													"value": "2023-08-02",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "4010dfca1d8b074e4a6725b1c93b5883;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Thu, 17 Aug 2023 23:48:56 GMT"
+										},
+										{
+											"key": "cache-control",
+											"value": "private"
+										},
+										{
+											"key": "x-request-id",
+											"value": "75d6350f-d158-49c0-977e-3084e7643e23"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google, 1.1 google"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"page\": 1,\n    \"total_page\": 1120,\n    \"data\": [\n        {\n            \"kode_satusehat\": \"1000112243\",\n            \"kode_sarana\": \"72030200012\",\n            \"nama\": \"TOMADEA MALEI\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -0.10839,\n            \"latitude\": 119.71305,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"sangat_terpencil\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"JL. Kesehatan Ds. Malei, Kec. Balaesang Tanjung, 94355\",\n            \"provinsi\": {\n                \"kode\": \"72\",\n                \"nama\": \"Sulawesi Tengah\",\n                \"kode_bps\": \"72\",\n                \"kode_lama\": \"72\"\n            },\n            \"kabkota\": {\n                \"kode\": \"7203\",\n                \"nama\": \"Kab. Donggala\",\n                \"kode_bps\": \"7205\",\n                \"kode_lama\": \"7203\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000070718\",\n            \"kode_sarana\": \"36020200003\",\n            \"nama\": \"BINUANGEUN\",\n            \"telp\": \"0878-2006-5999\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -6.41861,\n            \"latitude\": 106.13445,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perdesaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl.Raya Binuangeun -Malingping km 01 Desa Muara, Kecamatan Wanasalam\",\n            \"provinsi\": {\n                \"kode\": \"36\",\n                \"nama\": \"Banten\",\n                \"kode_bps\": \"36\",\n                \"kode_lama\": \"36\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3602\",\n                \"nama\": \"Kab. Lebak\",\n                \"kode_bps\": \"3602\",\n                \"kode_lama\": \"3602\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000096762\",\n            \"kode_sarana\": \"73080200004\",\n            \"nama\": \"KAJUARA\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -5.06059,\n            \"latitude\": 120.16676,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perdesaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl.Poros Bone-Sinjai Kel.Awang Tangka Kec.Kajuara Kab.Bone\",\n            \"provinsi\": {\n                \"kode\": \"73\",\n                \"nama\": \"Sulawesi Selatan\",\n                \"kode_bps\": \"73\",\n                \"kode_lama\": \"73\"\n            },\n            \"kabkota\": {\n                \"kode\": \"7308\",\n                \"nama\": \"Kab. Bone\",\n                \"kode_bps\": \"7311\",\n                \"kode_lama\": \"7308\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000096449\",\n            \"kode_sarana\": \"82040200002\",\n            \"nama\": \"LAIWUI\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -1.2522,\n            \"latitude\": 127.58301,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"terpencil\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jln. Nyiur Melambai Desa Laiwui, Kec. Obi\",\n            \"provinsi\": {\n                \"kode\": \"82\",\n                \"nama\": \"Maluku Utara\",\n                \"kode_bps\": \"82\",\n                \"kode_lama\": \"82\"\n            },\n            \"kabkota\": {\n                \"kode\": \"8204\",\n                \"nama\": \"Kab. Halmahera Selatan\",\n                \"kode_bps\": \"8204\",\n                \"kode_lama\": \"8204\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000089410\",\n            \"kode_sarana\": \"12070200012\",\n            \"nama\": \"TANJUNG MORAWA\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": 3.51641,\n            \"latitude\": 98.79203,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perkotaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Irian No 242 Kel.Pekan, Kec. Tanjung Morawa Kode pos 20362\",\n            \"provinsi\": {\n                \"kode\": \"12\",\n                \"nama\": \"Sumatera Utara\",\n                \"kode_bps\": \"12\",\n                \"kode_lama\": \"12\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1207\",\n                \"nama\": \"Kab. Deli Serdang\",\n                \"kode_bps\": \"1212\",\n                \"kode_lama\": \"1207\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000102274\",\n            \"kode_sarana\": \"32070200004\",\n            \"nama\": \"LAKBOK\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -7.38885,\n            \"latitude\": 108.66216,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perdesaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Raya Lakbok No. 607 Rt. 08 Rw. 02 Ds. Sukanagara, Kec. Lakbok\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3207\",\n                \"nama\": \"Kab. Ciamis\",\n                \"kode_bps\": \"3207\",\n                \"kode_lama\": \"3207\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000089070\",\n            \"kode_sarana\": \"21030200013\",\n            \"nama\": \"SERASAN TIMUR\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": 2.51297,\n            \"latitude\": 109.02292,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"sangat_terpencil\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Ds. Arung Ayam, Kec. Serasan Timur\",\n            \"provinsi\": {\n                \"kode\": \"21\",\n                \"nama\": \"Kepulauan Riau\",\n                \"kode_bps\": \"21\",\n                \"kode_lama\": \"21\"\n            },\n            \"kabkota\": {\n                \"kode\": \"2103\",\n                \"nama\": \"Kab. Natuna\",\n                \"kode_bps\": \"2103\",\n                \"kode_lama\": \"2103\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000146921\",\n            \"kode_sarana\": \"32050200004\",\n            \"nama\": \"BUNGBULANG\",\n            \"telp\": \"081372717267\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -7.45592,\n            \"latitude\": 107.59836,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"terpencil\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Alun-alun Selatan RT/RW. 01/09, Ds. Bungbulang, Kec. Bungbulang\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3205\",\n                \"nama\": \"Kab. Garut\",\n                \"kode_bps\": \"3205\",\n                \"kode_lama\": \"3205\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000060476\",\n            \"kode_sarana\": \"33180200002\",\n            \"nama\": \"SUKOLILO II\",\n            \"telp\": null,\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": -6.91575,\n            \"latitude\": 110.90907,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perdesaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Desa Prawoto, Kec.Sukolilo\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3318\",\n                \"nama\": \"Kab. Pati\",\n                \"kode_bps\": \"3318\",\n                \"kode_lama\": \"3318\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000107157\",\n            \"kode_sarana\": \"32020200024\",\n            \"nama\": \"JAMPANG TENGAH\",\n            \"telp\": \"0266 6465009 - 081210353412\",\n            \"email\": null,\n            \"website\": null,\n            \"longitude\": 106.79913,\n            \"latitude\": -7.05783,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": \"perdesaan\",\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Jl. Raya Bojonglopang RT 05 RW 02 Desa Jampangtengah Kecamatan Jampangtengah\",\n            \"provinsi\": {\n                \"kode\": \"32\",\n                \"nama\": \"Jawa Barat\",\n                \"kode_bps\": \"32\",\n                \"kode_lama\": \"32\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3202\",\n                \"nama\": \"Kab. Sukabumi\",\n                \"kode_bps\": \"3202\",\n                \"kode_lama\": \"3202\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"102\",\n                \"nama\": \"Pusat Kesehatan Masyarakat\",\n                \"nama_alt\": \"Puskesmas\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10201\",\n                \"nama\": \"Puskesmas Perawatan (Rawat Inap)\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Master Sarana Index - Praktik Mandiri",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=101&status_aktif=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"mastersaranaindex",
+										"mastersarana"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "jenis_sarana",
+											"value": "101"
+										},
+										{
+											"key": "kode_satusehat",
+											"value": "1000201991",
+											"disabled": true
+										},
+										{
+											"key": "kode_sarana",
+											"value": "1235959",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "pratama",
+											"disabled": true
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "kode_kabkota",
+											"value": "3501",
+											"disabled": true
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "350105",
+											"disabled": true
+										},
+										{
+											"key": "status_aktif",
+											"value": "true"
+										},
+										{
+											"key": "status_sarana",
+											"value": "verified",
+											"disabled": true
+										},
+										{
+											"key": "sumber_identifier",
+											"value": "dto_msfi",
+											"disabled": true
+										},
+										{
+											"key": "identifier_kode_sarana",
+											"value": "1000160630",
+											"disabled": true
+										},
+										{
+											"key": "lower_bound_updated_at",
+											"value": "2023-08-01",
+											"disabled": true
+										},
+										{
+											"key": "upper_bound_updated_at",
+											"value": "2023-08-02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success - Public Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/mastersaranaindex/mastersarana?limit=10&page=1&jenis_sarana=101&status_aktif=true",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"mastersaranaindex",
+												"mastersarana"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "jenis_sarana",
+													"value": "101"
+												},
+												{
+													"key": "kode_satusehat",
+													"value": "1000201991",
+													"disabled": true
+												},
+												{
+													"key": "kode_sarana",
+													"value": "1235959",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "pratama",
+													"disabled": true
+												},
+												{
+													"key": "kode_provinsi",
+													"value": "35",
+													"disabled": true
+												},
+												{
+													"key": "kode_kabkota",
+													"value": "3501",
+													"disabled": true
+												},
+												{
+													"key": "kode_kecamatan",
+													"value": "350105",
+													"disabled": true
+												},
+												{
+													"key": "status_aktif",
+													"value": "true"
+												},
+												{
+													"key": "status_sarana",
+													"value": "verified",
+													"disabled": true
+												},
+												{
+													"key": "sumber_identifier",
+													"value": "dto_msfi",
+													"disabled": true
+												},
+												{
+													"key": "identifier_kode_sarana",
+													"value": "1000160630",
+													"disabled": true
+												},
+												{
+													"key": "lower_bound_updated_at",
+													"value": "2023-08-01",
+													"disabled": true
+												},
+												{
+													"key": "upper_bound_updated_at",
+													"value": "2023-08-02",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "content-type",
+											"value": "application/json"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "x-cloud-trace-context",
+											"value": "1c753606bbc1de80194b02b2b75cae2e;o=1"
+										},
+										{
+											"key": "date",
+											"value": "Thu, 17 Aug 2023 23:50:07 GMT"
+										},
+										{
+											"key": "cache-control",
+											"value": "private"
+										},
+										{
+											"key": "x-request-id",
+											"value": "6041bf30-264e-49df-a6ac-049c2d6778f9"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google, 1.1 google"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "X-Xss-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Permissions-Policy",
+											"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+										},
+										{
+											"key": "Alt-Svc",
+											"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"page\": 1,\n    \"total_page\": 1489,\n    \"data\": [\n        {\n            \"kode_satusehat\": \"1000556982\",\n            \"kode_sarana\": \"64740100009\",\n            \"nama\": \"Praktek Mandiri Dokter Gigi Maria Lidwina Hendrata\",\n            \"telp\": \"054822394\",\n            \"email\": \"lidwinahendrata@yahoo.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000088325\",\n                \"nama\": \"BONTANG BARAT\",\n                \"kode_sarana\": \"64740200006\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl. M. Efendi AAA no 5 BTN PKT, RT. 36, kelurahan Belimbing, kecamatan Bontang Barat, Bontang\",\n            \"provinsi\": {\n                \"kode\": \"64\",\n                \"nama\": \"Kalimantan Timur\",\n                \"kode_bps\": \"64\",\n                \"kode_lama\": \"64\"\n            },\n            \"kabkota\": {\n                \"kode\": \"6474\",\n                \"nama\": \"Kota Bontang\",\n                \"kode_bps\": \"6474\",\n                \"kode_lama\": \"6474\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10104\",\n                \"nama\": \"Dokter Gigi\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000036499\",\n            \"kode_sarana\": \"31730100080\",\n            \"nama\": \"Praktek Mandiri Bidan Husdiati\",\n            \"telp\": \"081294465502_\",\n            \"email\": \"bidanhusdiati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000120367\",\n                \"nama\": \"Kel.  RAWA BUAYA\",\n                \"kode_sarana\": \"31730200052\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"jl klingkit RT 004 RW 012 No 35 Kel. rawa Buaya Kec.Cengkareng Jakarta Barat\",\n            \"provinsi\": {\n                \"kode\": \"31\",\n                \"nama\": \"DKI Jakarta\",\n                \"kode_bps\": \"31\",\n                \"kode_lama\": \"31\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3173\",\n                \"nama\": \"Kota Adm. Jakarta Barat\",\n                \"kode_bps\": \"3174\",\n                \"kode_lama\": \"3173\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000528636\",\n            \"kode_sarana\": \"33230100005\",\n            \"nama\": \"Praktek Mandiri dr. Frisca Yudawati\",\n            \"telp\": \"08562528843\",\n            \"email\": \"friscayudawati@ymail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000054843\",\n                \"nama\": \"BANSARI\",\n                \"kode_sarana\": \"33230200004\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Srimulyo RT 3 RW 4 Bansari Temanggung Jawa Tengah\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3323\",\n                \"nama\": \"Kab. Temanggung\",\n                \"kode_bps\": \"3323\",\n                \"kode_lama\": \"3323\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000017182\",\n            \"kode_sarana\": \"73090100009\",\n            \"nama\": \"PRAKTIK MANDIRI BIDAN HJ. FATMAWATI, S.ST\",\n            \"telp\": \"082196442588\",\n            \"email\": \"Fatmawatihamzah5@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000074958\",\n                \"nama\": \"TURIKALE\",\n                \"kode_sarana\": \"73090200005\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl.A.P.Pettarani depan SD 7\",\n            \"provinsi\": {\n                \"kode\": \"73\",\n                \"nama\": \"Sulawesi Selatan\",\n                \"kode_bps\": \"73\",\n                \"kode_lama\": \"73\"\n            },\n            \"kabkota\": {\n                \"kode\": \"7309\",\n                \"nama\": \"Kab. Maros\",\n                \"kode_bps\": \"7308\",\n                \"kode_lama\": \"7309\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000014180\",\n            \"kode_sarana\": \"35120100001\",\n            \"nama\": \"DPP Dr. Juni Setiawan\",\n            \"telp\": null,\n            \"email\": \"junisetia@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000068648\",\n                \"nama\": \"BANYUPUTIH\",\n                \"kode_sarana\": \"35120200017\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Kp.Sukorejo,RT 01/RW 03,desa Sumberejo kecamatan Banyuputih\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3512\",\n                \"nama\": \"Kab. Situbondo\",\n                \"kode_bps\": \"3512\",\n                \"kode_lama\": \"3512\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000030794\",\n            \"kode_sarana\": \"35150100013\",\n            \"nama\": \"Praktik Mandiri Bidan Heni Kusumawati, A.Md. Keb\",\n            \"telp\": \"087703393074\",\n            \"email\": \"henikusumawati97@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000104997\",\n                \"nama\": \"TAMAN\",\n                \"kode_sarana\": \"35150200022\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jl. Puyuh No 21 RT 07 RW 06 Sepanjang\",\n            \"provinsi\": {\n                \"kode\": \"35\",\n                \"nama\": \"Jawa Timur\",\n                \"kode_bps\": \"35\",\n                \"kode_lama\": \"35\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3515\",\n                \"nama\": \"Kab. Sidoarjo\",\n                \"kode_bps\": \"3515\",\n                \"kode_lama\": \"3515\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000035469\",\n            \"kode_sarana\": \"15090100010\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER Asti Prasumma\",\n            \"telp\": \"082226564440\",\n            \"email\": \"astiprasumma2@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000120056\",\n                \"nama\": \"RIMBO BUJANG IX\",\n                \"kode_sarana\": \"15090200008\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Jalan Telanai Pura, RT/RW 006/-, Desa Sido Rukun\",\n            \"provinsi\": {\n                \"kode\": \"15\",\n                \"nama\": \"Jambi\",\n                \"kode_bps\": \"15\",\n                \"kode_lama\": \"15\"\n            },\n            \"kabkota\": {\n                \"kode\": \"1509\",\n                \"nama\": \"Kab. Tebo\",\n                \"kode_bps\": \"1508\",\n                \"kode_lama\": \"1509\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000006585\",\n            \"kode_sarana\": \"31710100063\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER DR RETNO JUWITA HANUM\",\n            \"telp\": \"08119990992\",\n            \"email\": \"dr.wita99@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": null,\n                \"nama\": null,\n                \"kode_sarana\": null,\n                \"status_aktif\": null,\n                \"status_sarana\": null\n            },\n            \"alamat\": \"Apartemen Salemba unit A0202 jalan Salemba Tengah II no 10\",\n            \"provinsi\": {\n                \"kode\": \"31\",\n                \"nama\": \"DKI Jakarta\",\n                \"kode_bps\": \"31\",\n                \"kode_lama\": \"31\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3171\",\n                \"nama\": \"Kota Adm. Jakarta Pusat\",\n                \"kode_bps\": \"3173\",\n                \"kode_lama\": \"3171\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000551164\",\n            \"kode_sarana\": \"33740174437\",\n            \"nama\": \"PRAKTIK MANDIRI BIDAN\",\n            \"telp\": null,\n            \"email\": \"ekokusumowati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": false,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000080139\",\n                \"nama\": \"NGALIYAN\",\n                \"kode_sarana\": \"33740200035\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"PMB EKO KUSUMOWATI S.TR.KEB\\r\\nKEMANTREN RT 1 RW 4\\r\\nKELURAHAN WONOSARI\\r\\nKECAMATAN NGALIAN\\r\\nKOTA SEMARANG\",\n            \"provinsi\": {\n                \"kode\": \"33\",\n                \"nama\": \"Jawa Tengah\",\n                \"kode_bps\": \"33\",\n                \"kode_lama\": \"33\"\n            },\n            \"kabkota\": {\n                \"kode\": \"3374\",\n                \"nama\": \"Kota Semarang\",\n                \"kode_bps\": \"3374\",\n                \"kode_lama\": \"3374\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10102\",\n                \"nama\": \"Bidan\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        },\n        {\n            \"kode_satusehat\": \"1000001107\",\n            \"kode_sarana\": \"51010100013\",\n            \"nama\": \"PRAKTIK MANDIRI DOKTER Ni Made Budi Kusuma Wati\",\n            \"telp\": \"082145868081\",\n            \"email\": \"madebudikusumawati@gmail.com\",\n            \"website\": null,\n            \"longitude\": null,\n            \"latitude\": null,\n            \"operasional\": true,\n            \"wilayah_perairan_darat\": null,\n            \"wilayah_karakteristik\": null,\n            \"sarana_administrasi\": {\n                \"kode\": \"1000049642\",\n                \"nama\": \"I MELAYA\",\n                \"kode_sarana\": \"51010200002\",\n                \"status_aktif\": true,\n                \"status_sarana\": \"valid\"\n            },\n            \"alamat\": \"Dsn. Sumber Sari, Ds Melaya, Kec. Melaya, Kab.  Jembrana\",\n            \"provinsi\": {\n                \"kode\": \"51\",\n                \"nama\": \"Bali\",\n                \"kode_bps\": \"51\",\n                \"kode_lama\": \"51\"\n            },\n            \"kabkota\": {\n                \"kode\": \"5101\",\n                \"nama\": \"Kab. Jembrana\",\n                \"kode_bps\": \"5101\",\n                \"kode_lama\": \"5101\"\n            },\n            \"jenis_sarana\": {\n                \"kode\": \"101\",\n                \"nama\": \"Tempat Praktik Mandiri Tenaga Kesehatan\",\n                \"nama_alt\": \"Praktik Mandiri\"\n            },\n            \"subjenis\": {\n                \"kode\": \"10103\",\n                \"nama\": \"Dokter\",\n                \"nama_alt\": null\n            },\n            \"kelas_sarana\": {\n                \"kode\": null,\n                \"nama\": null\n            },\n            \"status_sarana\": \"valid\",\n            \"status_aktif\": true\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "HealthCheck",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth_header}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_header}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-cloud-trace-context",
+							"value": "9df89e871442844bdc2334f23074ddf4"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 07 Apr 2023 18:03:41 GMT"
+						},
+						{
+							"key": "content-length",
+							"value": "48"
+						},
+						{
+							"key": "x-request-id",
+							"value": "def9f925-ebaa-4413-b4bd-c94f369cfa23"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"message\": \"pong\",\n    \"status_code\": 200\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_url",
+			"value": "https://api-satusehat.kemkes.go.id/oauth2/v1",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://api-satusehat.kemkes.go.id/masterdata",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "KH8buV0V87P4JMv73IrJo7kcPtivYHsuPlaA3rNpmqAQiYSR",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "AqNAqlZUJp6tErYcPPVpA9lNczISpGHjmBf2VR981wEGANocTdaDOeEb5IKTkq49",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

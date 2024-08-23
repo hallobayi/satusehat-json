@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "ddccf2d4-407a-465d-83e5-1321f42326ac",
+		"name": "API KYC (faskes)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6431559"
+	},
+	"item": [
+		{
+			"name": "Token - Generate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"token\",data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{auth_url}}/accesstoken?grant_type=client_credentials",
+					"host": [
+						"{{auth_url}}"
+					],
+					"path": [
+						"accesstoken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "URL - Generate: Encrypted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "-----BEGIN ENCRYPTED MESSAGE-----\nimR0er0J0xjdlqFi+0D148UN54vyid+h5NGz8/vB5sChiPUVtS+72Ancyqcj22l5/UihwNCXG35N\nrSj21rNVFPWzSXT1tJE7a76MBhcSBs/mDS2dWJDaWVLTbqwFibO31b5kzNPNeunP7SlruwDfsoz8\nFzJtRAomRNf5XhnS4UnjI/532JnbbLlFhuOtzQbgbvCcuHWJjTzR+oDyL1O5q6FgABkbLjWYdcyq\neAxU7MWBa60uwroIDqDhL+TkxFlqUN0R+Ag7Pza5kJ9oOlPRACAVYm88bzoJOYjMG3K25KVWKSB8\nLdQu78NiQrYKTSsHxe6v4XOsZrKc++XR5ob5iw821vcqI6KkxBzK1sLB5q7Pv2cprW6wioHRpbH6\nq8PcSXs+7FLQUdduxKV7hchc7XhCzPJwn021YrAaRJ/FgAqk3bNa1JFGdg7N552JRZJsarBqjP8z\nRcOhaMdHOwR+pZF4snfMB8t7Uj2hXp14c/bZJTVaME5XaLSdivRm5KqCFdhP4H59n2dj6mQdkgY0\nQKuV81XsKbEEZ+kj5FSQDIB+QBm1DXxpi4IEpSodeOmp07twbH5ahRFvzulf+UsHo94BJRzpEDLr\nuU6/Wzr540mgJpml38oWAj2j4qyf3ukclvL/yrfebT5uBDqmmqtskhAOI7NJAuNLisiyo8Ulfs2m\nIOqutu51IpLphzjuzkzRR5Bscm/vmVVZE1uv3tDQY1EVCZcXKgIOrMdxoCZLppqzX/Nx9sOFrCwF\nydBxEe9DYrL4vUStxDMVPvaIDN8p/3w2f+KYnHZMN5Fh9xp0MLVk9FvO+C3QoaEDSK0rh941owbR\nccuF+zMm+a9VIr+ss5Y2DM8zxQqpOf6YEWCqA7A0XFXW9VfVBst/SPYo96v4pYHimo67G+f1qhdV\n7y0yw6cXHjYF/EU7gptBryAWR6uNulepXIbtYuhoWrGbNEhTDsORlCrOmmBkzcavkWfOXZJcgLtT\nHGZHCNXh3+nCOncRsLL9NNdyG7/I7q6wc8EzLPpzsUWqn2Uv/tfOxj3TooGUvG5VPNBTnXSqjXpK\niCdFKSyAx2K52yIZ0Ek/ItswNS1r97Y1HWUZoAT9hq4=\n-----END ENCRYPTED MESSAGE-----",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{kyc_base_url}}/generate-url",
+					"host": [
+						"{{kyc_base_url}}"
+					],
+					"path": [
+						"generate-url"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "-----BEGIN ENCRYPTED MESSAGE-----\nimR0er0J0xjdlqFi+0D148UN54vyid+h5NGz8/vB5sChiPUVtS+72Ancyqcj22l5/UihwNCXG35N\nrSj21rNVFPWzSXT1tJE7a76MBhcSBs/mDS2dWJDaWVLTbqwFibO31b5kzNPNeunP7SlruwDfsoz8\nFzJtRAomRNf5XhnS4UnjI/532JnbbLlFhuOtzQbgbvCcuHWJjTzR+oDyL1O5q6FgABkbLjWYdcyq\neAxU7MWBa60uwroIDqDhL+TkxFlqUN0R+Ag7Pza5kJ9oOlPRACAVYm88bzoJOYjMG3K25KVWKSB8\nLdQu78NiQrYKTSsHxe6v4XOsZrKc++XR5ob5iw821vcqI6KkxBzK1sLB5q7Pv2cprW6wioHRpbH6\nq8PcSXs+7FLQUdduxKV7hchc7XhCzPJwn021YrAaRJ/FgAqk3bNa1JFGdg7N552JRZJsarBqjP8z\nRcOhaMdHOwR+pZF4snfMB8t7Uj2hXp14c/bZJTVaME5XaLSdivRm5KqCFdhP4H59n2dj6mQdkgY0\nQKuV81XsKbEEZ+kj5FSQDIB+QBm1DXxpi4IEpSodeOmp07twbH5ahRFvzulf+UsHo94BJRzpEDLr\nuU6/Wzr540mgJpml38oWAj2j4qyf3ukclvL/yrfebT5uBDqmmqtskhAOI7NJAuNLisiyo8Ulfs2m\nIOqutu51IpLphzjuzkzRR5Bscm/vmVVZE1uv3tDQY1EVCZcXKgIOrMdxoCZLppqzX/Nx9sOFrCwF\nydBxEe9DYrL4vUStxDMVPvaIDN8p/3w2f+KYnHZMN5Fh9xp0MLVk9FvO+C3QoaEDSK0rh941owbR\nccuF+zMm+a9VIr+ss5Y2DM8zxQqpOf6YEWCqA7A0XFXW9VfVBst/SPYo96v4pYHimo67G+f1qhdV\n7y0yw6cXHjYF/EU7gptBryAWR6uNulepXIbtYuhoWrGbNEhTDsORlCrOmmBkzcavkWfOXZJcgLtT\nHGZHCNXh3+nCOncRsLL9NNdyG7/I7q6wc8EzLPpzsUWqn2Uv/tfOxj3TooGUvG5VPNBTnXSqjXpK\niCdFKSyAx2K52yIZ0Ek/ItswNS1r97Y1HWUZoAT9hq4=\n-----END ENCRYPTED MESSAGE-----",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{kyc_base_url}}/generate-url",
+							"host": [
+								"{{kyc_base_url}}"
+							],
+							"path": [
+								"generate-url"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "text/plain"
+						},
+						{
+							"key": "x-cloud-trace-context",
+							"value": "c70bec556d0d296dadef2e55428f7ec3;o=1"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 06 Jun 2023 00:18:24 GMT"
+						},
+						{
+							"key": "content-length",
+							"value": "812"
+						},
+						{
+							"key": "x-request-id",
+							"value": "5a740b0a-76b8-4f39-81d0-6abc6293d76b"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Permissions-Policy",
+							"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						}
+					],
+					"cookie": [],
+					"body": "-----BEGIN ENCRYPTED MESSAGE-----\nUrcQwgetWLGmWDY3yRtyrin66awL1r1045qdmKbL/0bzMugzj5/GZbhgtQKqqkPmmvRjDHpBeSFD\nHX3ENoucdiQYWO0ar13qacvVCdpo5Nmx0W3VTBpegS10BMVhJpkF+96e62n6c4euggt1DS8On8aO\n/80C5r3XwTK+JJh1vHC4YNjw29Nn72m8QfuRG3GoE+34RMEo8MXjgkmaopPbVnba3revQgCOqz59\nFyI1ZpOyvtB2d6+uX3H3IlsWbc7zv5kG8OQs5Lw/FQf7i2K8SEEHjuB+IEaZRIFPhDNGE3h8du3q\nB//uVJL9CyMsdVsJ4uzUdeyD7ewe7V8998R9lU/RVgqm7ZJxkC3279bbu/2uiwlOdbQGd0l3Qs5+\ns4xWQNG2r8muXuludYWtL7pP8XtH0fgk5vG39GQXpZE/wPSnPvRVfj0ftDVGY2TKBLDI5x54c8r3\nmOsn4fjvTfeb9ITwEGJolGCHFMp1+mGRwsLTuW55TiDwWt5gHupAwlI++nl1PT7fg0cwG8PjHWaq\nCOnLLPAQCYOfRMZyzjEHwKtDZRBFSUbQsMyOwOFBh+0UWwlPt8m9nEWGfgtabRAP9PJs9ceDKNN9\nSIYaBz9BKOcFQwQSCJhCSw+BGaO01SvzZQ7sBg/xMfi/XsB3ufRNC8eUr3STlxTA+HRMTdmSziRh\n7LMjH1MllxvUZX5NDWseTf/bWPaC1+70I63VBF9pxfVhZSbLVj4=\n-----END ENCRYPTED MESSAGE-----\n"
+				}
+			]
+		},
+		{
+			"name": "Challenge Code - Generate - Debug",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Debug-Mode",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "X-Frame-Token",
+						"value": "{{url_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"metadata\": {\n        \"method\": \"request_per_nik\"\n    },\n    \"data\": {\n        \"nik\": \"3171022809990001\",\n        \"name\": \"Budi Santoso\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{kyc_base_url}}/challenge-code",
+					"host": [
+						"{{kyc_base_url}}"
+					],
+					"path": [
+						"challenge-code"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Debug-Mode",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metadata\": {\n        \"method\": \"request_per_nik\"\n    },\n    \"data\": {\n        \"nik\": \"3171022809990001\",\n        \"name\": \"Budi Santoso\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{kyc_base_url}}/challenge-code",
+							"host": [
+								"{{kyc_base_url}}"
+							],
+							"path": [
+								"challenge-code"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-cloud-trace-context",
+							"value": "c52c33964542c38ea1cd80008dec376f;o=1"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 06 Jun 2023 00:37:00 GMT"
+						},
+						{
+							"key": "content-length",
+							"value": "238"
+						},
+						{
+							"key": "x-request-id",
+							"value": "27c32deb-8209-4ff6-a6b5-5c22fb1b80fe"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Permissions-Policy",
+							"value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metadata\": {\n        \"code\": \"200\",\n        \"message\": \"OK\"\n    },\n    \"data\": {\n        \"nik\": \"3171022809990001\",\n        \"name\": \"Budi Santoso\",\n        \"ihs_number\": \"100000030009\",\n        \"challenge_code\": \"282650\",\n        \"created_timestamp\": \"2023-06-06T00:37:00Z\",\n        \"expired_timestamp\": \"2023-06-06T00:38:00Z\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "kyc_base_url",
+			"value": "https://api-satusehat-stg.dto.kemkes.go.id/kyc/v1",
+			"type": "string"
+		}
+	]
+}
